@@ -92,7 +92,7 @@ class Assembler
      * @param string $var1 Name of variable to return
      * @param string $_ Next name of variable to retrieve - repeater
      *
-     * @return array
+     * @return mixed
      *
      * @throw RuntimeException
      */
