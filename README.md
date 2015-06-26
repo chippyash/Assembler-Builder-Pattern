@@ -4,19 +4,7 @@
 
 Certified for PHP 5.4+
 
-The above badges represent the current development branch.  As a rule, I don't push
- to GitHub unless tests, coverage and usability are acceptable.  This may not be
- true for short periods of time; on holiday, need code for some other downstream
- project etc.  If you need stable code, use a tagged version. Read 'Further Documentation'
- and 'Installation'.
- 
-## Quality Assurance
-
-Certified for PHP 5.4+
-
-[![Build Status](https://travis-ci.org/chippyash/Monad.svg?branch=master)](https://travis-ci.org/chippyash/Monad)
-[![Coverage Status](https://coveralls.io/repos/chippyash/Monad/badge.svg?branch=master)](https://coveralls.io/r/chippyash/Monad?branch=master)
-[![Code Climate](https://codeclimate.com/github/chippyash/Monad/badges/gpa.svg)](https://codeclimate.com/github/chippyash/Monad)
+Badges TBC
 
 The above badges represent the current development branch.  As a rule, I don't push
  to GitHub unless tests, coverage and usability are acceptable.  This may not be
