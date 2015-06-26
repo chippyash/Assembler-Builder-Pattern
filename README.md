@@ -24,7 +24,9 @@ In my research of the Scala language, I came across the [For Comprehension](http
  but without the associated requirements for a Director.
  
 I did some searching but couldn't find anything remotely like it, so if you know of anything
-please do let me know.  So why is it useful?
+please do let me know.  
+
+So why is it useful?
 
 In essence it provides a mechanism to collect together `things` and then assemble them
  at some later point. The things in this case are functions.  Since the introduction
@@ -36,12 +38,23 @@ In essence it provides a mechanism to collect together `things` and then assembl
 
 - create an `Assembler`
 - attach a bunch of functions to it with a key (variable name) for the function
-    - functions can access previously stored variables
+    - functions can access previously defined functions (or stored variables)
 - assemble everything (call the functions that have been previously attached)
 - access one, some or none of the results
 
-The examples/OneManCoffeeShop.php gives a flavour of the Assembler in action in a 
+The examples/OneManCoffeeShop.php script gives a flavour of the Assembler in action in a 
 relatively simple scenario.
+
+examples/CarAssemblyLine.php is a bit more complex, but shows how you can pass around
+an Assembler to various processes a bit like a shopping trolley, leaving it until some
+point in the future where it is all assembled into some final product.  It also demonstrates
+a simple derivation of the Assembler, the Scala like `For Comprehension` which because
+`For` is a reserved word in PHP, is called `FFor`.
+
+In a large system, you might want to use an Assembler as a collection point for stuff
+going on in the application.  For this purpose you can get a Singleton instance via
+`Assembler::get()`. Of course, you can only use this once (as in subsequent calls to
+Assembler::get() will return the same instance,) so use with care. 
 
 ## Running the examples
 
