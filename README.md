@@ -21,7 +21,7 @@ Scala like For Comprehension, (a simple descendant of Assembler.)
 
 In my research of the Scala language, I came across the [For Comprehension](http://the-matrix.github.io/php/a-functional-for-comprehension/).
  It turns out that at its core, it is really a variant of a classic [Builder Pattern](https://github.com/chippyash/Builder-Pattern),
- but without the associated 
+ but without the associated requirements for a Director.
  
 I did some searching but couldn't find anything remotely like it, so if you know of anything
 please do let me know.  So why is it useful?
