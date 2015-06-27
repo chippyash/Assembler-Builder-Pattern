@@ -2,9 +2,11 @@
 
 ## Quality Assurance
 
-Certified for PHP 5.5+
+Certified for PHP 5.4+
 
-Badges TBC
+[![Build Status](https://travis-ci.org/chippyash/Assembler-Builder-Pattern.svg?branch=master)](https://travis-ci.org/chippyash/Assembler-Builder-Pattern)
+[![Coverage Status](https://coveralls.io/repos/chippyash/assembler-builder-pattern/badge.svg)](https://coveralls.io/r/chippyash/assembler-builder-pattern)
+[![Code Climate](https://codeclimate.com/github/chippyash/Assembler-Builder-Pattern/badges/gpa.svg)](https://codeclimate.com/github/chippyash/Assembler-Builder-Pattern)
 
 The above badges represent the current development branch.  As a rule, I don't push
  to GitHub unless tests, coverage and usability are acceptable.  This may not be

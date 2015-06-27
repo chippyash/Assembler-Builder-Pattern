@@ -93,8 +93,6 @@ class Assembler
      * @param string $_ Next name of variable to retrieve - repeater
      *
      * @return mixed
-     *
-     * @throw RuntimeException
      */
     public function release($var1)
     {
