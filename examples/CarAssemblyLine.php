@@ -6,6 +6,8 @@
  * Car Assembly Line example using the Assembly Comprehension
  * This example illustrates a synchronous execution of the Comprehension
  *
+ * Look - no If statements!
+ *
  * @author Ashley Kitson
  * @copyright Ashley Kitson <ashley@zf4.biz>, 2015, UK
  * @licence GPLV3+ see LICENSE.MD
@@ -72,8 +74,8 @@ class AssemblyLine
     {
         list($tyre, $colour) = $assembler->assemble()
             ->release('tyre', 'colour');
-        return new Car("I made you a $colour car with $tyre tyres");
 
+        return new Car("I made you a $colour car with $tyre tyres");
     }
 }
 

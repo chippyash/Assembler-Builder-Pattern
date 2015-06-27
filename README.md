@@ -56,16 +56,16 @@ going on in the application.  For this purpose you can get a Singleton instance 
 `Assembler::get()`. Of course, you can only use this once (as in subsequent calls to
 Assembler::get() will return the same instance,) so use with care. 
 
+## How?
+
+Documentation incomplete.
+
+See the tests and [Test Contract](https://github.com/chippyash/assembler-builder-pattern/blob/master/docs/Test-Contract.md)
+ for further information at present.
+
 ## Running the examples
 
 Although the library itself does not have any other dependencies other than PHP5.4+, 
 the examples do.  These are included in the `composer requires-dev` statement so as
 long as you have included the dev requirements (default for Composer,) you should be 
 good to go.
-
-Documentation incomplete.
-
-See the tests and [Test Contract](https://github.com/chippyash/assembler-builder-pattern/blob/master/docs/Test-Contract.md)
- for further information at present.
- 
-Run examples/OneManCoffeeShop.php to see it in action
