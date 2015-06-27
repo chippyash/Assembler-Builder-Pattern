@@ -58,6 +58,8 @@ Assembler::get() will return the same instance,) so use with care.
 
 ## How?
 
+![Uml diag](https://github.com/chippyash/assembler-builder-pattern/blob/master/docs/uml.png)
+
 Documentation incomplete.
 
 See the tests and [Test Contract](https://github.com/chippyash/assembler-builder-pattern/blob/master/docs/Test-Contract.md)
