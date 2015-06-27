@@ -98,20 +98,15 @@ class Assembler
      */
     public function release($var1)
     {
+        $flip = array_flip(func_get_args());
+        $intersect = array_intersect_key($this->values, $flip);
         if (count(func_get_args()) > 1) {
-            $flip = array_flip(func_get_args());
-            $intersect = array_intersect_key($this->values, $flip);
             array_walk($flip, function(&$v, $k) use ($intersect) {
                  $v = $intersect[$k];
             });
             return array_values($flip);
         } else {
-            return array_pop(
-                array_intersect_key(
-                    $this->values,
-                    array_flip(func_get_args())
-                )
-            );
+            return array_pop($intersect);
         }
     }
 
