@@ -2,7 +2,7 @@
 
 ## Quality Assurance
 
-Certified for PHP 5.4+
+Certified for PHP 5.5+
 
 Badges TBC
 
