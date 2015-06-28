@@ -1,6 +1,8 @@
 {
   "name": "chippyash/assembly-builder",
-  "description": "Lightweight assembly builder pattern with Scala like For Comprehension",
+  "description": "Lightweight functional assembly builder pattern with Scala like For Comprehension",
+  "homepage" : "http://the-matrix.github.io/",
+  "keywords" : ["functional","for","comprehension","builder pattern"],
   "minimum-stability": "stable",
   "license": "GPL V3+",
   "authors": [
