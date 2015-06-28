@@ -60,12 +60,124 @@ Assembler::get() will return the same instance,) so use with care.
 
 ## How?
 
+### Assembler
+
+Create an Assembler
+
+<pre>
+use Assembler\Assembler;
+
+$myAssembler = Assembler::create();
+//or to create the singleton instance
+$myAssembler = Assembler::get();
+</pre>
+
+Add functions to an Assembler. This may seems strange at first. The pattern for adding
+functions is:
+
+<pre>
+Assembler->nameOfVar(function(){ return ...;});
+//e.g.
+$myAssembler->foo(function(){return 'foo';});
+</pre>
+
+Or to chain a number of assembly items together:
+
+<pre>
+$myAssembler->foo(function(){return 'foo';})
+    ->bar(function(){return 'bar';});
+</pre>
+
+You can reference predefined entries by passing in their name as a parameter to 
+subsequent entries:
+
+<pre>
+$myAssembler->foo(function(){return 'foo';})
+    ->bar(function($foo){return "$foo bar";});
+</pre>
+
+At this point, the Assembler has not executed your functions, so you can redefined them:
+
+<pre>
+$myAssembler->foo(function(){return 'foo';})
+    ->bar(function($foo){return "$foo bar";})
+    ->foo(function(){return 'foo foo';});
+</pre>
+
+To execute the functions, call the `assemble()` method:
+
+<pre>
+$myAssembler->foo(function(){return 'foo})
+    ->bar(function($foo){return "$foo bar";})
+    ->foo(function(){return 'foo foo';})
+    ->assemble();
+</pre>
+
+At this point, the entries become immutable and cannot be overwritten.  You can
+continue to add additional entries, perhaps referencing earlier ones and then call
+->assemble() again to fix the entries.
+
+To retrieve one of more values from the Assembler you use the `release()` method.
+release() takes one or more strings, the names of the items that you want to release.
+To release a single item:
+
+<pre>
+$myFoo = Assembler::create()
+    ->foo(function(){return 'foo})
+    ->bar(function($foo){return "$foo bar";})
+    ->foo(function(){return 'foo foo';})
+    ->assemble()
+    ->release('foo');
+</pre>
+
+Releasing multiple items will return an array of values, so perhaps the easiest way
+to access them is to use the venerable PHP `list()` method, e.g.
+
+<pre>
+list($myFoo, $myBar) = Assembler::create()
+    ->foo(function(){return 'foo})
+    ->bar(function($foo){return "$foo bar";})
+    ->foo(function(){return 'foo foo';})
+    ->assemble()
+    ->release('foo', 'bar');
+</pre>
+
+You can merge one Assembler into another using the `merge()` method:
+
+<pre>
+$worker1 = Assembler::create()
+    ->foo(function(){return 'foo});
+    
+$worker2 = Assembler::create()
+    ->bar(function($foo){return "$foo bar";})
+    
+$myFoo = $worker1->merge($worker2->assemble())
+    ->assemble()
+    ->release('foo');
+</pre>
+
+### FFor
+
+The FFor class is a simple extension of Assembler, but with restrictions:
+
+- you cannot create a singleton FFor via get(). Use create().  FFor is intended as a language
+construct
+- you cannot merge() a FFor.
+- there is an additional method; fyield().  Treat this exactly as you would release().
+fyield() is pseudonym for ->assemble()->release()
+
+See the examples/CarAssemblyLine.php script for a usage example.
+
+## Further documentation
+
+Please note that what you are seeing of this documentation displayed on Github is
+always the latest dev-master. The features it describes may not be in a released version
+ yet. Please check the documentation of the version you Compose in, or download.
+
 ![Uml diag](https://github.com/chippyash/Assembly-Builder/blob/master/docs/uml.png)
 
-Documentation incomplete.
-
 See the tests and [Test Contract](https://github.com/chippyash/Assembly-Builder/blob/master/docs/Test-Contract.md)
- for further information at present.
+ for further information.
 
 ## Running the examples
 
@@ -73,3 +185,73 @@ Although the library itself does not have any other dependencies other than PHP5
 the examples do.  These are included in the `composer requires-dev` statement so as
 long as you have included the dev requirements (default for Composer,) you should be 
 good to go.
+
+## Changing the library
+
+1.  fork it
+2.  write the test
+3.  amend it
+4.  do a pull request
+
+Found a bug you can't figure out?
+
+1.  fork it
+2.  write the test
+3.  do a pull request
+
+NB. Make sure you rebase to HEAD before your pull request
+
+Or - raise an issue ticket.
+
+## Where?
+
+The library is hosted at [Github](https://github.com/chippyash/Assembly-Builder). It is
+available at [Packagist.org](https://packagist.org/packages/chippyash/assembly-builder)
+
+### Installation
+
+Install [Composer](https://getcomposer.org/)
+
+#### For production
+
+<pre>
+    "chippyash/assembly-builder": "~1.0.0"
+</pre>
+
+Or to use the latest, possibly unstable version:
+
+<pre>
+    "chippyash/assembly-builder": "dev-master"
+</pre>
+
+
+#### For development
+
+Clone this repo, and then run Composer in local repo root to pull in dependencies
+
+<pre>
+    git clone git@github.com:chippyash/Assembly-Builder.git Assembler
+    cd Monad
+    composer install
+</pre>
+
+To run the tests:
+
+<pre>
+    cd Assembler
+    vendor/bin/phpunit -c test/phpunit.xml test/
+</pre>
+
+## License
+
+This software library is released under the [GNU GPL V3 or later license](http://www.gnu.org/copyleft/gpl.html)
+
+This software library is Copyright (c) 2015, Ashley Kitson, UK
+
+A commercial license is available for this software library, please contact the author. 
+It is normally free to deserving causes, but gets you around the limitation of the GPL
+license, which does not allow unrestricted inclusion of this code in commercial works.
+
+## History
+
+V1.0.0 Initial Release
