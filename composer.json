@@ -16,7 +16,7 @@
     "phpunit/phpunit": "~4.7.5",
     "chippyash/strong-type": "~2.1.0",
     "chippyash/monad": "~1.2.4",
-    "satooshi/php-coveralls": "dev-master"
+    "codeclimate/php-test-reporter": "dev-master"
   },
   "autoload": {
     "psr-0":{
