@@ -4,9 +4,9 @@
 
 Certified for PHP 5.4+
 
-[![Build Status](https://travis-ci.org/chippyash/Assembler-Builder-Pattern.svg?branch=master)](https://travis-ci.org/chippyash/Assembler-Builder-Pattern)
-[![Code Climate](https://codeclimate.com/github/chippyash/Assembler-Builder-Pattern/badges/gpa.svg)](https://codeclimate.com/github/chippyash/Assembler-Builder-Pattern)
-[![Code Climate](https://codeclimate.com/github/chippyash/Assembler-Builder-Pattern/badges/gpa.svg)](https://codeclimate.com/github/chippyash/Assembler-Builder-Pattern)
+[![Build Status](https://travis-ci.org/chippyash/Assembly-Builder.svg?branch=master)](https://travis-ci.org/chippyash/Assembly-Builder)
+[![Code Climate](https://codeclimate.com/github/chippyash/Assembly-Builder/badges/gpa.svg)](https://codeclimate.com/github/chippyash/Assembly-Builder)
+[![Test Coverage](https://codeclimate.com/github/chippyash/Assembly-Builder/badges/coverage.svg)](https://codeclimate.com/github/chippyash/Assembly-Builder/coverage)
 
 The above badges represent the current development branch.  As a rule, I don't push
  to GitHub unless tests, coverage and usability are acceptable.  This may not be
