@@ -156,6 +156,36 @@ $myFoo = $worker1->merge($worker2->assemble())
     ->release('foo');
 </pre>
 
+You can send in parameters during the creation (create() or get()) of an Assembler.
+This is most useful to prevent you having to use the `use clause` during function
+definition.  Parameters sent in during the create process are immutable, i.e. you cannot
+override them with a later declaration.
+
+<pre>
+$a = 'foo';
+$b = 'bar'
+
+$value = Assembler::create(['a'=>$a, 'b'=>$b])
+    ->foo(function($a, $b) { return "$a$b";})
+    ->assemble()
+    ->release('foo');
+// $value == 'foobar'
+
+//This will have no effect on 'a'
+$value = Assembler::create(['a'=>$a, 'b'=>$b])
+    ->a(function() {return 1;})
+    ->foo(function($a, $b) { return "$a$b";})
+    ->assemble()
+    ->release('foo');
+
+//without parameter injection
+$value = Assembler::create()
+    ->foo(function() use ($a, $b) { return "$a$b";})
+    ->assemble()
+    ->release('foo');
+
+</pre>
+
 ### FFor
 
 The FFor class is a simple extension of Assembler, but with restrictions:
@@ -163,8 +193,8 @@ The FFor class is a simple extension of Assembler, but with restrictions:
 - you cannot create a singleton FFor via get(). Use create().  FFor is intended as a language
 construct
 - you cannot merge() a FFor.
-- there is an additional method; fyield().  Treat this exactly as you would release().
-fyield() is pseudonym for ->assemble()->release()
+- there is an additional method; fyield(). fyield() is a pseudonym for ->assemble()->release()
+and takes the same parameters as release()
 
 See the examples/CarAssemblyLine.php script for a usage example.
 
@@ -255,3 +285,5 @@ license, which does not allow unrestricted inclusion of this code in commercial 
 ## History
 
 V1.0.0 Initial Release
+
+V1.0.1 Add ability to send in parameters om Assembler of Ffor creation 

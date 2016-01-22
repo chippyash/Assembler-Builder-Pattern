@@ -41,22 +41,34 @@ class Assembler
      * Static Assembler constructor
      * Returns a new Assembler
      *
+     * @param array $params Immutable parameters to send into the assembler
+     *
      * @return static
      */
-    public static function create()
+    public static function create(array $params = [])
     {
-        return new static();
+        $assembler = new static();
+        if (!empty($params)) {
+            array_walk($params, function($v, $k) use ($assembler) {
+                $assembler->$k(function() use($v) {return $v;});
+            });
+            $assembler->assemble();
+        }
+
+        return $assembler;
     }
 
     /**
      * Return Singleton instance of Assembler
      *
+     * @param array $params Immutable parameters to send into the assembler
+     *
      * @return Assembler
      */
-    public static function get()
+    public static function get(array $params = [])
     {
         if (empty(self::$singleton)) {
-            self::$singleton = static::create();
+            self::$singleton = static::create($params);
         }
 
         return self::$singleton;

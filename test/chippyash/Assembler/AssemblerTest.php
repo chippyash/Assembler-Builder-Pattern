@@ -84,6 +84,9 @@ class AssemblerTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Assembler\Assembler', $sut);
     }
 
+    /**
+     * @runInSeparateProcess
+     */
     public function testYouCanGetASingletonInstanceOfTheAssembler()
     {
         $sut = Assembler::get()
@@ -126,5 +129,42 @@ class AssemblerTest extends \PHPUnit_Framework_TestCase
             ->release('var1','var2');
         $this->assertEquals(1, $v1);
         $this->assertEquals(2, $v2);
+    }
+
+    public function testYouCanSendInParametersWhenYouCreateAnAssembler()
+    {
+        $sut = Assembler::create(['foo' => 'bar'])
+            ->dosomething(function($foo) {return "{$foo}{$foo}";})
+            ->assemble();
+
+        list($test1, $test2) = $sut->release('dosomething', 'foo');
+
+        $this->assertEquals('barbar', $test1);
+        $this->assertEquals('bar', $test2);
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testYouCanSendInParametersWhenYouGetAnAssembler()
+    {
+        $sut = Assembler::get(['foo' => 'bar'])
+            ->dosomething(function($foo) {return "{$foo}{$foo}";})
+            ->assemble();
+
+        list($test1, $test2) = $sut->release('dosomething', 'foo');
+
+        $this->assertEquals('barbar', $test1);
+        $this->assertEquals('bar', $test2);
+    }
+
+    public function testParametersSentInDuringCreationAreImmutable()
+    {
+        $sut = Assembler::create(['foo' => 'bar'])
+            ->foo(function() {return 'baz';}) //this is ignored - foo is immutable
+            ->assemble();
+
+        $test = $sut->release('foo');
+        $this->assertEquals('bar', $test);
     }
 }
