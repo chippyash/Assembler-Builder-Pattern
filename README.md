@@ -245,7 +245,7 @@ Install [Composer](https://getcomposer.org/)
 #### For production
 
 <pre>
-    "chippyash/assembly-builder": "~1.0.0"
+    "chippyash/assembly-builder": "~1.1.0"
 </pre>
 
 Or to use the latest, possibly unstable version:
