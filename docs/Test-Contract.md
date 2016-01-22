@@ -1,6 +1,8 @@
 # Chippyash Assembler Builder Pattern
 
-## chippyash\Test\Assembler\Assembler
+## 
+      chippyash\Test\Assembler\Assembler
+    
 
 *  You cannot construct an assembler directly
 *  You construct an assembler using the create method
@@ -12,8 +14,13 @@
 *  You can get a singleton instance of the assembler
 *  You cannot overwrite a previously assembled value
 *  You can merge two assemblies
+*  You can send in parameters when you create an assembler
+*  You can send in parameters when you get an assembler
+*  Parameters sent in during creation are immutable
 
-## chippyash\Test\Assembler\FFor
+## 
+      chippyash\Test\Assembler\FFor
+    
 
 *  You cannot construct a singleton ffor
 *  You cannot merge a ffor
