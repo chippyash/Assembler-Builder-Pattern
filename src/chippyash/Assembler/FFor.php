@@ -36,14 +36,16 @@ class FFor extends Assembler
     }
 
     /**
+     * @inheritdoc
      * @throw \BadMethodCallException
      */
-    public static function get()
+    public static function get(array $params = [])
     {
         throw new \BadMethodCallException('Cannot create singleton FFor Comprehension');
     }
 
     /**
+     * @inheritdoc
      * @throw \BadMethodCallException
      */
     public function merge(Assembler $other)
