@@ -7,7 +7,7 @@
  * @licence GPLV3+ see LICENSE.MD
  */
 
-namespace chippyash\Test\Assembler;
+namespace Assembler\Test\Assembler;
 
 use Assembler\Assembler;
 use chippyash\Type\Number\IntType;

@@ -7,7 +7,7 @@
  * @license GPL V3+ See LICENSE.md
  */
 
-namespace chippyash\Test\Assembler;
+namespace Assembler\Test\Assembler;
 
 use Assembler\FFor;
 

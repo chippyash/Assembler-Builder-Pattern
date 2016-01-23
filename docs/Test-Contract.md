@@ -1,7 +1,7 @@
 # Chippyash Assembler Builder Pattern
 
 ## 
-      chippyash\Test\Assembler\Assembler
+      Assembler\Test\Assembler\Assembler
     
 
 *  You cannot construct an assembler directly
@@ -20,7 +20,7 @@
 *  Function parameters are passed in the correct order
 
 ## 
-      chippyash\Test\Assembler\FFor
+      Assembler\Test\Assembler\FFor
     
 
 *  You cannot construct a singleton ffor
