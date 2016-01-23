@@ -186,6 +186,26 @@ $value = Assembler::create()
 
 </pre>
 
+You can utilise the ParameterGrabable trait to facilitate parameter injection into
+the create() constructor.
+
+<pre>
+use Assembler\Traits\ParameterGrabable;
+use Assembler\Assembler;
+
+class myClass {
+     use ParameterGrabable;
+
+     static function foo($param1, $param2 = null) {
+         $a = Assembler::create(self::grabFunctionParameters(__CLASS__, __FUNCTION__, func_get_args());
+     }
+
+     function bar($param1, $param2 = null) {
+         $a = Assembler::create($this->grabMethodParameters(__CLASS__, __METHOD__, func_get_args());
+     }
+}
+</pre>
+
 ### FFor
 
 The FFor class is a simple extension of Assembler, but with restrictions:
@@ -289,3 +309,5 @@ V1.0.0 Initial Release
 V1.1.0 Add ability to send in parameters on Assembler and Ffor creation
 
 V1.1.1 Fix parameter order passing bug
+
+V1.1.1 Add ParameterGrabable trait
