@@ -177,16 +177,13 @@ class Assembler
             return $func();
         }
 
-        $fArgs = array_values(
-            array_intersect_key(
-                $this->values,
-                array_flip(
-                    array_map(function ($value) {
-                        return $value->getName();
-                    },
-                        $args
-                    )
-                )
+        $fArgs = array_map(function($key) {
+            return $this->values[$key];
+        },
+            array_map(function($arg) {
+                return $arg->getName();
+            },
+                $args
             )
         );
 

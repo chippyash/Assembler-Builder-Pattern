@@ -10,6 +10,7 @@
 namespace chippyash\Test\Assembler;
 
 use Assembler\Assembler;
+use chippyash\Type\Number\IntType;
 
 class AssemblerTest extends \PHPUnit_Framework_TestCase
 {
@@ -166,5 +167,20 @@ class AssemblerTest extends \PHPUnit_Framework_TestCase
 
         $test = $sut->release('foo');
         $this->assertEquals('bar', $test);
+    }
+
+    public function testFunctionParametersArePassedInTheCorrectOrder()
+    {
+        $sut = Assembler::create([
+            'v1' => false,
+            'v2' => 'foo',
+            'v3' => new IntType(4)
+        ])
+            ->foo(function($v3, $v2, $v1) {
+                return $v3() . $v2 . ' ' . ($v1 ? 'true' : 'false');
+            })
+            ->assemble();
+
+        $this->assertEquals('4foo false', $sut->release('foo'));
     }
 }
