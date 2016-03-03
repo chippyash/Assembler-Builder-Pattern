@@ -10,7 +10,7 @@
 namespace Assembler\Test\Assembler;
 
 use Assembler\Assembler;
-use chippyash\Type\Number\IntType;
+use Chippyash\Type\Number\IntType;
 
 class AssemblerTest extends \PHPUnit_Framework_TestCase
 {

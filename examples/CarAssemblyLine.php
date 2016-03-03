@@ -17,9 +17,9 @@ include __DIR__ . '/../vendor/autoload.php';
 use Assembler\Assembler;
 use Assembler\FFor;
 use Monad\Match;
-use chippyash\Type\String\StringType as Tyre;
-use chippyash\Type\String\StringType as PaintColour;
-use chippyash\Type\String\StringType as Car;
+use Chippyash\Type\String\StringType as Tyre;
+use Chippyash\Type\String\StringType as PaintColour;
+use Chippyash\Type\String\StringType as Car;
 
 interface Carmaker
 {

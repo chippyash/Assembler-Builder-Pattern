@@ -311,3 +311,5 @@ V1.1.0 Add ability to send in parameters on Assembler and Ffor creation
 V1.1.1 Fix parameter order passing bug
 
 V1.1.2 Add ParameterGrabable trait
+
+V1.2.0 Update to use Chippyash\Type V3

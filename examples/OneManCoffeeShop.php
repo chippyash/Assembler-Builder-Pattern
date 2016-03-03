@@ -12,13 +12,13 @@
  */
 include __DIR__ . '/../vendor/autoload.php';
 
-use chippyash\Type\Number\IntType as Water;
-use chippyash\Type\String\StringType as CoffeeBeans;
-use chippyash\Type\String\StringType as GroundCoffee;
-use chippyash\Type\String\StringType as Milk;
-use chippyash\Type\String\StringType as FrothedMilk;
-use chippyash\Type\String\StringType as Espresso;
-use chippyash\Type\String\StringType as Cappuccino;
+use Chippyash\Type\Number\IntType as Water;
+use Chippyash\Type\String\StringType as CoffeeBeans;
+use Chippyash\Type\String\StringType as GroundCoffee;
+use Chippyash\Type\String\StringType as Milk;
+use Chippyash\Type\String\StringType as FrothedMilk;
+use Chippyash\Type\String\StringType as Espresso;
+use Chippyash\Type\String\StringType as Cappuccino;
 use Assembler\Assembler;
 
 class CoffeeShop

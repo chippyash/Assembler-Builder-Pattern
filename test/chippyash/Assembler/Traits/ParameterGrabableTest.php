@@ -9,7 +9,7 @@
 
 namespace Assembler\Test\Traits;
 
-use chippyash\Type\String\StringType;
+use Chippyash\Type\String\StringType;
 
 class ParameterGrabableTest extends \PHPUnit_Framework_TestCase
 {
