@@ -228,6 +228,8 @@ always the latest dev-master. The features it describes may not be in a released
 
 See the tests and [Test Contract](https://github.com/chippyash/Assembly-Builder/blob/master/docs/Test-Contract.md)
  for further information.
+ 
+Check out [ZF4 Packages](http://zf4.biz/packages?utm_source=github&utm_medium=web&utm_campaign=blinks&utm_content=assembler) for more packages
 
 ## Running the examples
 
@@ -313,3 +315,5 @@ V1.1.1 Fix parameter order passing bug
 V1.1.2 Add ParameterGrabable trait
 
 V1.2.0 Update to use Chippyash\Type V3
+
+V1.2.1 Add link to packages
