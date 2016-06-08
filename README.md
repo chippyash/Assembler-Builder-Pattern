@@ -2,8 +2,10 @@
 
 ## Quality Assurance
 
-Certified for PHP 5.4+
-
+![PHP 5.4](https://img.shields.io/badge/PHP-5.4-blue.svg)
+![PHP 5.5](https://img.shields.io/badge/PHP-5.5-blue.svg)
+![PHP 5.6](https://img.shields.io/badge/PHP-5.6-blue.svg)
+![PHP 7](https://img.shields.io/badge/PHP-7-blue.svg)
 [![Build Status](https://travis-ci.org/chippyash/Assembly-Builder.svg?branch=master)](https://travis-ci.org/chippyash/Assembly-Builder)
 [![Code Climate](https://codeclimate.com/github/chippyash/Assembly-Builder/badges/gpa.svg)](https://codeclimate.com/github/chippyash/Assembly-Builder)
 [![Test Coverage](https://codeclimate.com/github/chippyash/Assembly-Builder/badges/coverage.svg)](https://codeclimate.com/github/chippyash/Assembly-Builder/coverage)
@@ -302,7 +304,7 @@ This software library is Copyright (c) 2015, Ashley Kitson, UK
 
 A commercial license is available for this software library, please contact the author. 
 It is normally free to deserving causes, but gets you around the limitation of the GPL
-license, which does not allow unrestricted inclusion of this code in commercial works.
+license, which does not allow unrestricted inclusion of this code in commercially distributable works.
 
 ## History
 
@@ -317,3 +319,5 @@ V1.1.2 Add ParameterGrabable trait
 V1.2.0 Update to use Chippyash\Type V3
 
 V1.2.1 Add link to packages
+
+V1.2.2 Verify PHP 7 compatibility
