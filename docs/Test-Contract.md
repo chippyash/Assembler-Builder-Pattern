@@ -1,8 +1,6 @@
 # Chippyash Assembler Builder Pattern
 
-## 
-      Assembler\Test\Assembler\Assembler
-    
+## Assembler\Test\Assembler\Assembler
 
 *  You cannot construct an assembler directly
 *  You construct an assembler using the create method
@@ -19,17 +17,13 @@
 *  Parameters sent in during creation are immutable
 *  Function parameters are passed in the correct order
 
-## 
-      Assembler\Test\Assembler\FFor
-    
+## Assembler\Test\Assembler\FFor
 
 *  You cannot construct a singleton ffor
 *  You cannot merge a ffor
 *  You can fyield a ffor instead of assemble then return
 
-## 
-      Assembler\Test\Traits\ParameterGrabable
-    
+## Assembler\Test\Traits\ParameterGrabable
 
 *  You can grab an object method parameters
 *  You can grab a static class function parameters
