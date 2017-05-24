@@ -321,3 +321,5 @@ V1.2.0 Update to use Chippyash\Type V3
 V1.2.1 Add link to packages
 
 V1.2.2 Verify PHP 7 compatibility
+
+V1.2.3 Update dependency on Monad
