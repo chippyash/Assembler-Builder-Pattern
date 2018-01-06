@@ -16,6 +16,13 @@ The above badges represent the current development branch.  As a rule, I don't p
  project etc.  If you need stable code, use a tagged version. Read 'Further Documentation'
  and 'Installation'.
  
+### End of life notice
+
+In March 2018, developer support will be withdrawn from this library for PHP <5.6. Older
+versions of PHP are now in such little use that the added effort of maintaining 
+compatibility is not effort effective.  See [PHP Version Stats](https://seld.be/notes/php-versions-stats-2017-1-edition)
+ for the numbers.
+ 
 ## What?
 
 Provides an Assembler, a lightweight variant of the Builder Pattern.  Also provides a
