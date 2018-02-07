@@ -332,3 +332,5 @@ V1.2.2 Verify PHP 7 compatibility
 V1.2.3 Update dependency on Monad
 
 V1.2.4 Update build scripts
+
+V1.2.5 update composer - forced by packagist composer.json format change
