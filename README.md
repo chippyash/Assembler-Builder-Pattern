@@ -2,8 +2,6 @@
 
 ## Quality Assurance
 
-![PHP 5.4](https://img.shields.io/badge/PHP-5.4-blue.svg)
-![PHP 5.5](https://img.shields.io/badge/PHP-5.5-blue.svg)
 ![PHP 5.6](https://img.shields.io/badge/PHP-5.6-blue.svg)
 ![PHP 7](https://img.shields.io/badge/PHP-7-blue.svg)
 [![Build Status](https://travis-ci.org/chippyash/Assembly-Builder.svg?branch=master)](https://travis-ci.org/chippyash/Assembly-Builder)
@@ -16,12 +14,8 @@ The above badges represent the current development branch.  As a rule, I don't p
  project etc.  If you need stable code, use a tagged version. Read 'Further Documentation'
  and 'Installation'.
  
-### End of life notice
-
-In March 2018, developer support will be withdrawn from this library for PHP <5.6. Older
-versions of PHP are now in such little use that the added effort of maintaining 
-compatibility is not effort effective.  See [PHP Version Stats](https://seld.be/notes/php-versions-stats-2017-1-edition)
- for the numbers.
+Please note that developer support for PHP5.4 & 5.5 was withdrawn at version 2.0.0 of this library.
+If you need support for PHP 5.4 or 5.5, please use a version`>=1,<2`
  
 ## What?
 
@@ -276,7 +270,7 @@ Install [Composer](https://getcomposer.org/)
 #### For production
 
 <pre>
-    "chippyash/assembly-builder": "~1.2.0"
+    "chippyash/assembly-builder": ">=2,<3"
 </pre>
 
 Or to use the latest, possibly unstable version:
@@ -334,3 +328,5 @@ V1.2.3 Update dependency on Monad
 V1.2.4 Update build scripts
 
 V1.2.5 update composer - forced by packagist composer.json format change
+
+V2.0.0 BC Break. Support withdrawn for old php versions
