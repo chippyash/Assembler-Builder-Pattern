@@ -4,31 +4,31 @@
  *
  * @author Ashley Kitson
  * @copyright Ashley Kitson <ashley@zf4.biz>, 2015, UK
- * @licence GPLV3+ see LICENSE.MD
+ * @licence BSD 3 Clause see LICENSE.MD
  */
-
+declare(strict_types=1);
 namespace Assembler\Test\Assembler;
 
 use Assembler\Assembler;
-use Chippyash\Type\Number\IntType;
+use PHPUnit\Framework\TestCase;
 
-class AssemblerTest extends \PHPUnit_Framework_TestCase
+class AssemblerTest extends TestCase
 {
     public function testYouCannotConstructAnAssemblerDirectly()
     {
-        $reflection = new \ReflectionClass('\Assembler\Assembler');
+        $reflection = new \ReflectionClass(Assembler::class);
         $constructor = $reflection->getConstructor();
         $this->assertFalse($constructor->isPublic());
     }
 
     public function testYouConstructAnAssemblerUsingTheCreateMethod()
     {
-        $this->assertInstanceOf('Assembler\Assembler', Assembler::create());
+        $this->assertInstanceOf(Assembler::class, Assembler::create());
     }
 
     public function testYouCanReleaseMultipleValues()
     {
-        list($v1, $v3) = Assembler::create()
+        [$v1, $v3] = Assembler::create()
             ->var1(function(){return 1;})
             ->var2(function($var1){return 2 + $var1;})
             ->var3(function($var1, $var2){return $var1 * 10 + $var2;})
@@ -55,7 +55,7 @@ class AssemblerTest extends \PHPUnit_Framework_TestCase
 
     public function testReleasingMultipleValuesWillReturnThemInTheOrderSpecified()
     {
-        list($v3, $v1, $v2) = Assembler::create()
+        [$v3, $v1, $v2] = Assembler::create()
             ->var1(function(){return 1;})
             ->var2(function($var1){return 2 + $var1;})
             ->var3(function($var1, $var2){return $var1 * 10 + $var2;})
@@ -67,11 +67,9 @@ class AssemblerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1, $v1);
     }
 
-    /**
-     * @expectedException RuntimeException
-     */
     public function testCreatingAVariableExpectsAClosure()
     {
+        $this->expectException(\RuntimeException::class);
         Assembler::create()->var1('foo');
     }
 
@@ -82,7 +80,7 @@ class AssemblerTest extends \PHPUnit_Framework_TestCase
             ->var2(function($var1){return 2 + $var1;})
             ->var3(function($var1, $var2){return $var1 * 10 + $var2;})
             ->assemble();
-        $this->assertInstanceOf('Assembler\Assembler', $sut);
+        $this->assertInstanceOf(Assembler::class, $sut);
     }
 
     /**
@@ -95,7 +93,7 @@ class AssemblerTest extends \PHPUnit_Framework_TestCase
             ->var2(function($var1){return 2 + $var1;})
             ->var3(function($var1, $var2){return $var1 * 10 + $var2;})
             ->assemble();
-        $this->assertInstanceOf('Assembler\Assembler', $sut);
+        $this->assertInstanceOf(Assembler::class, $sut);
     }
 
     public function testYouCannotOverwriteAPreviouslyAssembledValue()
@@ -119,14 +117,14 @@ class AssemblerTest extends \PHPUnit_Framework_TestCase
         $sut2 = Assembler::create()
             ->var2(function(){return 2;})
             ->assemble();
-        list($v1, $v2) = $sut1->merge($sut2)
+        [$v1, $v2] = $sut1->merge($sut2)
             ->release('var1','var2');
         $this->assertEquals(1, $v1);
         $this->assertEquals(2, $v2);
 
         //case where other Assembly has no values
         $sut3 = Assembler::create();
-        list($v1, $v2) = $sut1->merge($sut3)
+        [$v1, $v2] = $sut1->merge($sut3)
             ->release('var1','var2');
         $this->assertEquals(1, $v1);
         $this->assertEquals(2, $v2);
@@ -138,7 +136,7 @@ class AssemblerTest extends \PHPUnit_Framework_TestCase
             ->dosomething(function($foo) {return "{$foo}{$foo}";})
             ->assemble();
 
-        list($test1, $test2) = $sut->release('dosomething', 'foo');
+        [$test1, $test2] = $sut->release('dosomething', 'foo');
 
         $this->assertEquals('barbar', $test1);
         $this->assertEquals('bar', $test2);
@@ -153,7 +151,7 @@ class AssemblerTest extends \PHPUnit_Framework_TestCase
             ->dosomething(function($foo) {return "{$foo}{$foo}";})
             ->assemble();
 
-        list($test1, $test2) = $sut->release('dosomething', 'foo');
+        [$test1, $test2] = $sut->release('dosomething', 'foo');
 
         $this->assertEquals('barbar', $test1);
         $this->assertEquals('bar', $test2);
@@ -174,10 +172,10 @@ class AssemblerTest extends \PHPUnit_Framework_TestCase
         $sut = Assembler::create([
             'v1' => false,
             'v2' => 'foo',
-            'v3' => new IntType(4)
+            'v3' => 4
         ])
             ->foo(function($v3, $v2, $v1) {
-                return $v3() . $v2 . ' ' . ($v1 ? 'true' : 'false');
+                return $v3 . $v2 . ' ' . ($v1 ? 'true' : 'false');
             })
             ->assemble();
 

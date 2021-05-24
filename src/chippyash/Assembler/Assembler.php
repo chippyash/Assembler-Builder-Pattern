@@ -3,10 +3,10 @@
  * Lightweight assembly builder pattern
  *
  * @author Ashley Kitson
- * @copyright Ashley Kitson <ashley@zf4.biz>, 2015, UK
- * @licence GPLV3+ see LICENSE.MD
+ * @copyright Ashley Kitson <ashley@zf4.biz>, 2015,2021 UK
+ * @licence BSD 3 Clause see LICENSE.MD
  */
-
+declare(strict_types=1);
 namespace Assembler;
 
 /**
@@ -45,7 +45,7 @@ class Assembler
      *
      * @return static
      */
-    public static function create(array $params = [])
+    public static function create(array $params = []): Assembler
     {
         $assembler = new static();
         if (!empty($params)) {
@@ -65,7 +65,7 @@ class Assembler
      *
      * @return Assembler
      */
-    public static function get(array $params = [])
+    public static function get(array $params = []): Assembler
     {
         if (empty(self::$singleton)) {
             self::$singleton = static::create($params);
@@ -83,7 +83,7 @@ class Assembler
      * @param array $args
      * @return $this
      */
-    public function __call($method, array $args)
+    public function __call($method, array $args): Assembler
     {
         if (count($args) == 0 || !$args[0] instanceof \Closure) {
             throw new \RuntimeException('We expect to build the variable with a function');
@@ -126,7 +126,7 @@ class Assembler
      *
      * @return $this
      */
-    public function assemble()
+    public function assemble(): Assembler
     {
         foreach ($this->placeHolders as $name => $placeholder) {
             if (!isset($this->values[$name])) {
@@ -145,7 +145,7 @@ class Assembler
      *
      * @return $this
      */
-    public function merge(Assembler $other)
+    public function merge(Assembler $other): Assembler
     {
         //N.B. reflection used so as to not expose values
         //via some public method

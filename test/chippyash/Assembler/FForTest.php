@@ -4,28 +4,25 @@
  *
  * @author Ashley Kitson
  * @copyright Ashley Kitson, 2015, UK
- * @license GPL V3+ See LICENSE.md
+ * @license GBSD 3 Clause See LICENSE.md
  */
-
+declare(strict_types=1);
 namespace Assembler\Test\Assembler;
 
 use Assembler\FFor;
+use PHPUnit\Framework\TestCase;
 
-class FForTest extends \PHPUnit_Framework_TestCase
+class FForTest extends TestCase
 {
-    /**
-     * @expectedException BadMethodCallException
-     */
     public function testYouCannotConstructASingletonFfor()
     {
+        $this->expectException(\BadMethodCallException::class);
         FFor::get();
     }
 
-    /**
-     * @expectedException BadMethodCallException
-     */
     public function testYouCannotMergeAFfor()
     {
+        $this->expectException(\BadMethodCallException::class);
         FFor::create()->merge(FFor::create());
     }
 

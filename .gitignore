@@ -3,3 +3,6 @@ vendor*
 composer.lock
 .directory
 .idea
+.phpunit.result.cache
+Assembly-Builder.iml
+build

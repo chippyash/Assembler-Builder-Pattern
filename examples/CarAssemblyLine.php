@@ -16,10 +16,29 @@ include __DIR__ . '/../vendor/autoload.php';
 
 use Assembler\Assembler;
 use Assembler\FFor;
-use Monad\Match;
-use Chippyash\Type\String\StringType as Tyre;
-use Chippyash\Type\String\StringType as PaintColour;
-use Chippyash\Type\String\StringType as Car;
+use Monad\FMatch;
+
+class StringHolder
+{
+    /**
+     * @var string
+     */
+    protected $val;
+
+    public function __construct(string $val)
+    {
+        $this->val = $val;
+    }
+
+    public function __toString()
+    {
+        return $this->val;
+    }
+}
+
+class Tyre extends StringHolder {}
+class PaintColour extends StringHolder {}
+class Car extends StringHolder {}
 
 interface Carmaker
 {
@@ -39,7 +58,7 @@ class TyreMaker implements Carmaker
     public function giveMe(Assembler $assembler)
     {
         return $assembler->tyre(
-            Match::on(mt_rand(1,2))
+            FMatch::on(mt_rand(1,2))
             ->test(1, function(){return function(){return new Tyre('radial');};})
             ->test(2, function(){return function(){return new Tyre('cross-ply');};})
             ->value()
@@ -56,7 +75,7 @@ class Paintshop implements Carmaker
     public function giveMe(Assembler $assembler)
     {
         return $assembler->colour(
-            Match::on(mt_rand(1,2))
+            FMatch::on(mt_rand(1,2))
             ->test(1, function(){return function(){return new PaintColour('red');};})
             ->test(2, function(){return function(){return new PaintColour('black');};})
             ->value()
