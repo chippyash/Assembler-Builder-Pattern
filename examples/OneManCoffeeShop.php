@@ -12,14 +12,50 @@
  */
 include __DIR__ . '/../vendor/autoload.php';
 
-use Chippyash\Type\Number\IntType as Water;
-use Chippyash\Type\String\StringType as CoffeeBeans;
-use Chippyash\Type\String\StringType as GroundCoffee;
-use Chippyash\Type\String\StringType as Milk;
-use Chippyash\Type\String\StringType as FrothedMilk;
-use Chippyash\Type\String\StringType as Espresso;
-use Chippyash\Type\String\StringType as Cappuccino;
 use Assembler\Assembler;
+
+class StringHolder
+{
+    /**
+     * @var string
+     */
+    protected $val;
+
+    public function __construct(string $val)
+    {
+        $this->val = $val;
+    }
+
+    public function __toString()
+    {
+        return $this->val;
+    }
+}
+class CoffeeBeans extends StringHolder{}
+class GroundCoffee extends StringHolder{}
+class Milk extends StringHolder{}
+class FrothedMilk extends StringHolder{}
+class Espresso extends StringHolder{}
+class Cappuccino extends StringHolder{}
+
+class IntHolder
+{
+    /**
+     * @var int
+     */
+    protected $val;
+
+    public function __construct(int $val)
+    {
+        $this->val = $val;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->val;
+    }
+}
+class Water extends IntHolder{}
 
 class CoffeeShop
 {
@@ -89,6 +125,6 @@ class CoffeeShop
 
 print "\nOne moment please, making a cappuccino ...\n";
 
-list($drink, $grind, $water, $milk) = (new CoffeeShop)->makeCappuccino();
+[$drink, $grind, $water, $milk] = (new CoffeeShop)->makeCappuccino();
 
 print "\nHere is your $drink using $grind with water at a temperature of {$water}C and $milk\n";

@@ -3,10 +3,10 @@
  * Lightweight assembly builder pattern
  *
  * @author Ashley Kitson
- * @copyright Ashley Kitson <ashley@zf4.biz>, 2015, UK
- * @licence GPLV3+ see LICENSE.MD
+ * @copyright Ashley Kitson <ashley@zf4.biz>, 2015,2021 UK
+ * @licence BSD 3 Clause see LICENSE.MD
  */
-
+declare(strict_types=1);
 namespace Assembler;
 
 /**
@@ -39,7 +39,7 @@ class FFor extends Assembler
      * @inheritdoc
      * @throw \BadMethodCallException
      */
-    public static function get(array $params = [])
+    public static function get(array $params = []): Assembler
     {
         throw new \BadMethodCallException('Cannot create singleton FFor Comprehension');
     }
@@ -48,7 +48,7 @@ class FFor extends Assembler
      * @inheritdoc
      * @throw \BadMethodCallException
      */
-    public function merge(Assembler $other)
+    public function merge(Assembler $other): Assembler
     {
         throw new \BadMethodCallException('Cannot merge a FFor Comprehension');
     }

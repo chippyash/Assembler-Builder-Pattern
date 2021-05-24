@@ -3,10 +3,10 @@
  * Lightweight assembly builder pattern
  *
  * @author Ashley Kitson
- * @copyright Ashley Kitson <ashley@zf4.biz>, 2016, UK
- * @licence GPLV3+ see LICENSE.MD
+ * @copyright Ashley Kitson <ashley@zf4.biz>, 2016,2021 UK
+ * @licence BSD 3 Clause see LICENSE.MD
  */
-
+declare(strict_types=1);
 namespace Assembler\Traits;
 
 /**
@@ -42,7 +42,7 @@ trait ParameterGrabable
      *
      * @return array
      */
-    static function grabFunctionParameters($class, $function, array $paramValues)
+    static function grabFunctionParameters($class, $function, array $paramValues): array
     {
         $declaredParams = (new \ReflectionMethod($class, $function))->getParameters();
         $paramNames = array_map(function(\ReflectionParameter $v) {
@@ -68,7 +68,7 @@ trait ParameterGrabable
      *
      * @return array
      */
-    function grabMethodParameters($class, $method, array $paramValues)
+    function grabMethodParameters($class, $method, array $paramValues): array
     {
         $declaredParams = (new \ReflectionMethod($class, $method))->getParameters();
         $paramNames = array_map(function(\ReflectionParameter $v) {

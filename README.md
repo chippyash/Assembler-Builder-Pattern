@@ -14,9 +14,12 @@ The above badges represent the current development branch.  As a rule, I don't p
  project etc.  If you need stable code, use a tagged version. Read 'Further Documentation'
  and 'Installation'.
  
-Please note that developer support for PHP5.4 & 5.5 was withdrawn at version 2.0.0 of this library.
+Developer support for PHP5.4 & 5.5 was withdrawn at version 2.0.0 of this library.
 If you need support for PHP 5.4 or 5.5, please use a version`>=1,<2`
- 
+
+Developer support for PHP7.X was withdrawn at version 3.0.0 of this library.
+If you need support for PHP 7.X, please use a version`>=2,<3`
+
 ## What?
 
 Provides an Assembler, a lightweight variant of the Builder Pattern.  Also provides a
@@ -134,7 +137,7 @@ $myFoo = Assembler::create()
 </pre>
 
 Releasing multiple items will return an array of values, so perhaps the easiest way
-to access them is to use the venerable PHP `list()` method, e.g.
+to access them is to use the venerable PHP `list()` (or []) method, e.g.
 
 <pre>
 list($myFoo, $myBar) = Assembler::create()
@@ -236,7 +239,7 @@ Check out [ZF4 Packages](http://zf4.biz/packages?utm_source=github&utm_medium=we
 
 ## Running the examples
 
-Although the library itself does not have any other dependencies other than PHP5.4+, 
+Although the library itself does not have any other dependencies other than PHP,
 the examples do.  These are included in the `composer requires-dev` statement so as
 long as you have included the dev requirements (default for Composer,) you should be 
 good to go.
@@ -270,7 +273,7 @@ Install [Composer](https://getcomposer.org/)
 #### For production
 
 <pre>
-    "chippyash/assembly-builder": ">=2,<3"
+    "chippyash/assembly-builder": ">=3"
 </pre>
 
 Or to use the latest, possibly unstable version:
@@ -328,3 +331,5 @@ V1.2.5 update composer - forced by packagist composer.json format change
 V2.0.0 BC Break. Support withdrawn for old php versions
 
 V2.1.0 Change of license from GPL V3 to BSD 3 Clause
+
+V3.0.0 BC Break. Support for PHP <V8 withdrawn
